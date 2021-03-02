@@ -7,10 +7,35 @@ pipeline {
              }
              post {
                  always {
-                     jiraSendBuildInfo site: 'fresco3.atlassian.net', branch: 'TDB-2_main'
-                      
+                     jiraSendBuildInfo site: 'aksservicedesk.atlassian.net',branch: 'JNG-1_main'
                  }
              }
+         }
+         stage('Deploy - Staging') {
+             when {
+                 branch 'master'
+             }
+             steps {
+                 echo 'Deploying to Staging from master...'
+             }
+             post {
+                 always {
+                     jiraSendDeploymentInfo site: 'aksservicedesk.atlassian.net', environmentId: 'TDB-1', environmentName: 'TDB-1', environmentType: 'staging'
+                 }
+             }
+         }
+         stage('Deploy - Production') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo 'Deploying to Production from master...'
+            }
+            post {
+                always {
+                    jiraSendDeploymentInfo site: 'aksservicedesk.atlassian.net', environmentId: 'us-prod-1', environmentName: 'us-prod-1', environmentType: 'production'
+                }
+            }
          }
      }
  }

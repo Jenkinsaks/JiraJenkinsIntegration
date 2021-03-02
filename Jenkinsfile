@@ -7,7 +7,7 @@ pipeline {
              }
              post {
                  always {
-                     jiraSendBuildInfo site: 'fresco3.atlassian.net', branch: 'TDB-1_main'
+                     jiraSendBuildInfo site: 'fresco3.atlassian.net', branch: 'TDB-2_main'
                       
                  }
              }

@@ -20,7 +20,7 @@ pipeline {
              }
              post {
                  always {
-                     jiraSendDeploymentInfo site: 'aksservicedesk.atlassian.net', environmentId: 'TDB-1', environmentName: 'TDB-1', environmentType: 'staging'
+                     jiraSendDeploymentInfo site: 'aksservicedesk.atlassian.net', environmentId: 'JNG-1', environmentName: 'JNG-1', environmentType: 'staging'
                  }
              }
          }
@@ -33,7 +33,7 @@ pipeline {
             }
             post {
                 always {
-                    jiraSendDeploymentInfo site: 'aksservicedesk.atlassian.net', environmentId: 'us-prod-1', environmentName: 'us-prod-1', environmentType: 'production'
+                    jiraSendDeploymentInfo site: 'aksservicedesk.atlassian.net', environmentId: 'JNG-1', environmentName: 'JNG-1', environmentType: 'production'
                 }
             }
          }
